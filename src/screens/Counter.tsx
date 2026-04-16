@@ -77,6 +77,9 @@ const Counter = () => {
             <Code>prev</Code> from the setter function that react guarantee it
             will give us the updated value
           </li>
+          <li>
+            It took me <Code>16:56:31</Code> MM:SS:MS
+          </li>
         </ul>
       </div>
     </div>
