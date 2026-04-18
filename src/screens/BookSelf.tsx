@@ -157,25 +157,25 @@ const BookSelf = () => {
   //   console.log('a.name', a.name); // What does this print?  // Bob
   //   console.log('b.name', b.name); // What does this print?  // Bob
 
-//   function updateValue(num: number, obj: any): any {
-//     num = num + 10;
+  function updateValue(num: number, obj: any): any {
+    num = num + 10;
 
-//     obj.value = obj.value + 10;
+    obj.value = obj.value + 10;
 
-//     obj = { value: 100 };
+    obj = { value: 100 };
 
-//     return { num, obj };
-//   }
+    return { num, obj };
+  }
 
-//   let number = 5;
-//   let data = { value: 5 };
+  let number = 5;
+  let data = { value: 5 };
 
-//   const anotherResult = updateValue(number, data);
+  const anotherResult = updateValue(number, data);
 
-//   console.log("1. ", number); //  5
-//   console.log("2. ", data); //  {value : 15}
-//   console.log("3. ", anotherResult.num); //  15
-//   console.log("4. ", anotherResult.obj); //  {value:100}
+  console.log("1. ", number); //  5
+  console.log("2. ", data); //  {value : 15}
+  console.log("3. ", anotherResult.num); //  15
+  console.log("4. ", anotherResult.obj); //  {value:100}
 
   return (
     <div className="mt-8 flex flex-col">
