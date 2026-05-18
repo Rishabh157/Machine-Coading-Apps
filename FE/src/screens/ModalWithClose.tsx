@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 const ModalWithClose = () => {
@@ -21,14 +21,20 @@ const ModalWithClose = () => {
 
       {open &&
         createPortal(
-          <ModalWithESCClose onClose={() => setOpen(false)} />,
+          <ModalWithESCClose children={<div></div>} onClose={() => setOpen(false)} />,
           document.body,
         )}
     </div>
   );
 };
 
-function ModalWithESCClose({ onClose }: { onClose: () => void }) {
+export function ModalWithESCClose({
+  children,
+  onClose,
+}: {
+  children: ReactNode;
+  onClose: () => void;
+}) {
   useEffect(() => {
     const handleESC = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -38,22 +44,24 @@ function ModalWithESCClose({ onClose }: { onClose: () => void }) {
     };
 
     window.addEventListener("keydown", handleESC);
+    document.body.style.overflow = "hidden";
 
     return () => {
       window.removeEventListener("keydown", handleESC);
+      document.body.style.overflow = "auto";
     };
   }, [onClose]);
 
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-black/50">
-      <div className="relative shadow bg-slate-100 rounded-xl h-[50vh] w-[35%] p-6 flex items-center justify-center">
+      <div className="relative z-50 shadow bg-slate-100 rounded-xl h-[50vh] overflow-auto w-[35%] p-6 flex items-center justify-center">
         <button
           onClick={onClose}
           className="absolute right-2 top-2 bg-slate-200 hover:bg-slate-300 cursor-pointer p-1 rounded-full"
         >
           ❌
         </button>
-        <h1>RISHBAH GOUR</h1>
+        {children}
       </div>
     </div>
   );

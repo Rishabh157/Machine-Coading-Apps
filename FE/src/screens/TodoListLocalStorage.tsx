@@ -41,13 +41,11 @@ const TodoListLocalStorage = () => {
   }, []);
 
   const handleDelete = (id: number) => {
-    console.log("id", id);
     setTodos(todos.filter((todo) => todo.id !== id));
 
     // local storage logic
     const stored = localStorage.getItem("todos");
     const prevTodos: TODOS[] = stored ? JSON.parse(stored) : [];
-    console.log("prevTodos", prevTodos);
 
     localStorage.setItem(
       "todos",
@@ -56,7 +54,6 @@ const TodoListLocalStorage = () => {
   };
 
   const handleCompleted = (id: number) => {
-    console.log("id", id);
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo,
@@ -76,8 +73,6 @@ const TodoListLocalStorage = () => {
       ),
     );
   };
-
-  console.log("draggedIndex", draggedIndex);
 
   return (
     <div>
@@ -115,8 +110,6 @@ const TodoListLocalStorage = () => {
                 const draggedElement = todos[draggedIndex];
                 let updated = [...todos];
                 updated.splice(draggedIndex, 1);
-                console.log("updated obj => ", updated);
-                console.log("draggedElement => ", draggedElement);
 
                 updated.splice(index, 0, draggedElement);
 

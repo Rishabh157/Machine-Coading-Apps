@@ -1,14 +1,27 @@
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
 import Counter from "./screens/Counter";
 import ToggleSwitch from "./screens/ToggleSwitch";
 import ModalWithClose from "./screens/ModalWithClose";
 import ToastNotification from "./screens/ToastNotification";
 import Tabs from "./screens/Tabs";
 import TodoListLocalStorage from "./screens/TodoListLocalStorage";
+import TableWithFilterAndSorting from "./screens/TableWithFilterAndSorting";
 // import BookSelf from "./screens/BookSelf";
 // import Todo from "./screens/Todo";
+
+
+
+
+var x = 10;
+
+function test(){
+    console.log(x);
+    var x = 20;
+    console.log(x)
+}
+
+test()
+
 
 function App() {
   return (
@@ -30,7 +43,9 @@ function App() {
 
       {/* <Tabs /> */}
 
-      <TodoListLocalStorage />
+      {/* <TodoListLocalStorage /> */}
+
+      <TableWithFilterAndSorting />
     </>
   );
 }
